@@ -6,31 +6,32 @@
 <title>J-SEY Customer Support</title>
 <style>
 *{box-sizing:border-box;}
-body{margin:0;font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#0a0e1c;color:#e5e7eb;overflow-x:auto;}
-.app{min-width:1000px;display:flex;flex-direction:column;}
-.header{background:#11162b;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #1f2540;}
+html,body{margin:0;padding:0;}
+body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#0a0e1c;color:#e5e7eb;}
+.header{background:#11162b;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #1f2540;flex-wrap:wrap;gap:8px;}
 .header-left{display:flex;align-items:center;gap:10px;}
-.header-left img.logo{width:34px;height:34px;border-radius:8px;}
-.header-left .title{font-weight:700;font-size:16px;color:#fff;}
-.header-left .subtitle{font-size:12px;color:#8891b0;}
-.search{width:320px;flex-shrink:0;display:flex;align-items:center;background:#1a2038;border-radius:8px;padding:8px 12px;color:#8891b0;font-size:13px;margin:0 auto;gap:6px;}
-.search input{border:none;background:transparent;outline:none;font-size:13px;flex:1;color:#e5e7eb;}
-.header-right{display:flex;align-items:center;gap:16px;font-size:18px;color:#8891b0;flex-shrink:0;}
+.header-left img.logo{width:30px;height:30px;border-radius:8px;}
+.header-left .title{font-weight:700;font-size:14px;color:#fff;}
+.header-left .subtitle{font-size:11px;color:#8891b0;}
+.search{flex:1;min-width:160px;max-width:320px;display:flex;align-items:center;background:#1a2038;border-radius:8px;padding:7px 10px;color:#8891b0;font-size:12px;gap:6px;}
+.search input{border:none;background:transparent;outline:none;font-size:12px;flex:1;color:#e5e7eb;min-width:0;}
+.header-right{display:flex;align-items:center;gap:10px;font-size:16px;color:#8891b0;}
 .header-right span{cursor:pointer;}
-.badge{background:#ef4444;color:#fff;font-size:10px;padding:1px 5px;border-radius:8px;position:relative;top:-8px;left:-6px;}
-.avatar{width:28px;height:28px;border-radius:50%;object-fit:cover;flex-shrink:0;}
-.agent-name{font-size:13px;font-weight:600;cursor:pointer;color:#e5e7eb;}
-.mystatus{font-size:11px;padding:2px 8px;border-radius:10px;cursor:pointer;font-weight:600;}
+.badge{background:#ef4444;color:#fff;font-size:9px;padding:1px 5px;border-radius:8px;position:relative;top:-8px;left:-6px;}
+.avatar{width:26px;height:26px;border-radius:50%;object-fit:cover;flex-shrink:0;}
+.agent-name{font-size:12px;font-weight:600;color:#e5e7eb;display:none;}
+.mystatus{font-size:10px;padding:2px 7px;border-radius:10px;cursor:pointer;font-weight:600;}
 .st-online{background:#0f3d2a;color:#4ade80;}
 .st-busy{background:#3d1414;color:#f87171;}
 .st-away{background:#3d2f0f;color:#fbbf24;}
 .st-offline{background:#1a2038;color:#8891b0;}
 
-.layout{display:flex;padding:14px;gap:14px;}
-.sidebar{width:230px;flex-shrink:0;background:#11162b;border-radius:10px;padding:12px;height:600px;overflow-y:auto;}
-.status-list div{display:flex;justify-content:space-between;padding:7px 6px;font-size:12px;border-radius:6px;color:#8891b0;}
-.customer-list{margin-top:12px;border-top:1px solid #1f2540;padding-top:8px;}
-.customer-card{display:flex;gap:10px;padding:10px 6px;border-radius:8px;cursor:pointer;}
+.layout{display:flex;flex-direction:column;padding:10px;gap:10px;}
+.sidebar,.workload,.info-panel{background:#11162b;border-radius:10px;padding:12px;}
+.status-list{display:flex;flex-wrap:wrap;gap:6px;}
+.status-list div{padding:6px 10px;font-size:11px;border-radius:6px;color:#8891b0;background:#1a2038;}
+.customer-list{margin-top:10px;border-top:1px solid #1f2540;padding-top:8px;}
+.customer-card{display:flex;gap:10px;padding:9px 6px;border-radius:8px;cursor:pointer;}
 .customer-card:hover{background:#1a2038;}
 .customer-card.selected{background:#1e2a52;}
 .customer-card .name{font-weight:600;font-size:13px;color:#fff;}
@@ -44,50 +45,47 @@ body{margin:0;font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#0
 .badge-reassigned{background:#3d1a4d;color:#e0a5f0;}
 .badge-delayed{background:#3d1414;color:#f87171;}
 
-.workload{width:200px;flex-shrink:0;background:#11162b;border-radius:10px;padding:12px;height:600px;overflow-y:auto;}
-.workload h3{font-size:13px;margin:0 0 10px;color:#fff;}
+.workload h3,.info-panel h3{font-size:13px;margin:0 0 10px;color:#fff;}
 .wl-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #1f2540;font-size:12px;}
 .wl-row .dot{width:8px;height:8px;border-radius:50%;}
 .wl-row .name{flex:1;font-weight:600;color:#e5e7eb;}
 .wl-row .num{color:#8891b0;}
 #auditLog div{font-size:11px;color:#8891b0;padding:4px 0;border-bottom:1px solid #1a2038;}
 
-.chat-panel{flex:1;min-width:0;background:#11162b;border-radius:10px;display:flex;flex-direction:column;height:600px;}
-.chat-header{padding:12px 16px;border-bottom:1px solid #1f2540;display:flex;align-items:center;justify-content:space-between;}
-.chat-header .who{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:#fff;}
-.chat-actions{padding:8px 16px;display:flex;gap:8px;border-bottom:1px solid #1a2038;flex-wrap:wrap;}
-.chat-actions button{border:none;padding:8px 14px;border-radius:6px;font-size:12px;cursor:pointer;background:#1a2038;color:#e5e7eb;}
+.chat-panel{background:#11162b;border-radius:10px;display:flex;flex-direction:column;}
+.chat-header{padding:12px 14px;border-bottom:1px solid #1f2540;display:flex;align-items:center;justify-content:space-between;}
+.chat-header .who{display:flex;align-items:center;gap:10px;font-weight:700;font-size:14px;color:#fff;}
+.chat-actions{padding:8px 14px;display:flex;gap:6px;border-bottom:1px solid #1a2038;flex-wrap:wrap;}
+.chat-actions button{border:none;padding:7px 11px;border-radius:6px;font-size:11px;cursor:pointer;background:#1a2038;color:#e5e7eb;white-space:nowrap;}
 .chat-actions button.primary{background:#5b5bf5;color:#fff;}
-.queue-banner{background:#241c0a;color:#fbbf24;padding:10px 16px;font-size:12px;display:flex;justify-content:space-between;align-items:center;}
-.queue-banner button{border:none;background:#b45309;color:#fff;padding:6px 12px;border-radius:6px;font-size:11px;cursor:pointer;}
-.delay-banner{background:#2a1010;color:#f87171;padding:8px 16px;font-size:12px;}
-.messages{flex:1;padding:16px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;min-height:0;}
+.queue-banner{background:#241c0a;color:#fbbf24;padding:9px 14px;font-size:11px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;}
+.queue-banner button{border:none;background:#b45309;color:#fff;padding:5px 10px;border-radius:6px;font-size:10px;cursor:pointer;}
+.delay-banner{background:#2a1010;color:#f87171;padding:8px 14px;font-size:11px;}
+.messages{padding:14px;display:flex;flex-direction:column;gap:10px;max-height:340px;overflow-y:auto;}
 .msg-row{display:flex;gap:8px;align-items:flex-end;}
 .msg-row.agent{flex-direction:row-reverse;}
-.bubble{max-width:55%;padding:10px 14px;border-radius:12px;font-size:13px;}
+.bubble{max-width:75%;padding:9px 13px;border-radius:12px;font-size:13px;}
 .msg-row.customer .bubble{background:#1a2038;color:#e5e7eb;}
 .msg-row.agent .bubble{background:#5b5bf5;color:#fff;}
-.reply-box{display:flex;align-items:center;gap:10px;padding:10px 16px;border-top:1px solid #1f2540;}
-.reply-box input{flex:1;border:1px solid #2a3155;background:#0d1224;color:#e5e7eb;border-radius:8px;padding:10px 12px;font-size:13px;}
-.reply-box button{background:#5b5bf5;color:#fff;border:none;padding:10px 18px;border-radius:8px;cursor:pointer;font-size:13px;}
+.reply-box{display:flex;align-items:center;gap:8px;padding:10px 14px;border-top:1px solid #1f2540;}
+.reply-box input{flex:1;min-width:0;border:1px solid #2a3155;background:#0d1224;color:#e5e7eb;border-radius:8px;padding:9px 11px;font-size:13px;}
+.reply-box button{background:#5b5bf5;color:#fff;border:none;padding:9px 14px;border-radius:8px;cursor:pointer;font-size:13px;white-space:nowrap;}
 
-.info-panel{width:230px;flex-shrink:0;background:#11162b;border-radius:10px;padding:14px;height:600px;overflow-y:auto;}
-.info-panel h3{font-size:13px;margin:0 0 10px;color:#fff;}
 .info-row{font-size:13px;margin-bottom:10px;}
 .info-row span{display:block;font-size:11px;color:#8891b0;}
 .info-row b{color:#e5e7eb;}
 .note-box{width:100%;border:1px solid #2a3155;background:#0d1224;color:#e5e7eb;border-radius:8px;padding:8px;font-size:12px;}
 #savedNotes div{font-size:12px;background:#1a2038;color:#e5e7eb;border-radius:6px;padding:6px 8px;margin-top:6px;}
 
-.closed-section{margin:0 14px 14px;background:#11162b;border-radius:10px;padding:14px;}
-.closed-row{display:flex;align-items:center;padding:7px 0;border-bottom:1px solid #1a2038;font-size:12px;}
-.closed-row .avatar{margin-right:10px;}
-.closed-row .col{flex:1;color:#8891b0;}
-.closed-row .status{color:#8891b0;font-size:11px;font-weight:700;}
+.closed-section{margin:0 10px 10px;background:#11162b;border-radius:10px;padding:14px;}
+.closed-row{display:flex;align-items:center;padding:7px 0;border-bottom:1px solid #1a2038;font-size:12px;flex-wrap:wrap;gap:4px;}
+.closed-row .avatar{margin-right:8px;}
+.closed-row .col{flex:1;min-width:100px;color:#8891b0;}
+.closed-row .status{color:#8891b0;font-size:10px;font-weight:700;}
 
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:50;}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:50;padding:16px;}
 .overlay.show{display:flex;}
-.panel{background:#11162b;border-radius:12px;width:300px;padding:18px;color:#e5e7eb;}
+.panel{background:#11162b;border-radius:12px;width:100%;max-width:320px;padding:18px;color:#e5e7eb;}
 .panel h4{margin:0 0 12px;font-size:14px;color:#fff;}
 .agent-option{display:flex;align-items:center;gap:10px;padding:10px;border-radius:8px;cursor:pointer;border:1px solid #1f2540;margin-bottom:8px;}
 .agent-option:hover{background:#1a2038;}
@@ -98,19 +96,28 @@ body{margin:0;font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#0
 .status-option{display:flex;align-items:center;gap:10px;padding:10px;border-radius:8px;cursor:pointer;border:1px solid #1f2540;margin-bottom:8px;}
 .status-option:hover{background:#1a2038;}
 
-.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#5b5bf5;color:#fff;padding:10px 18px;border-radius:8px;font-size:13px;opacity:0;transition:opacity .3s;z-index:60;}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#5b5bf5;color:#fff;padding:10px 18px;border-radius:8px;font-size:13px;opacity:0;transition:opacity .3s;z-index:60;max-width:90%;text-align:center;}
 .toast.show{opacity:1;}
+
+@media (min-width:900px){
+  .agent-name{display:inline;}
+  .layout{flex-direction:row;align-items:flex-start;}
+  .sidebar{width:220px;flex-shrink:0;}
+  .workload{width:190px;flex-shrink:0;}
+  .info-panel{width:220px;flex-shrink:0;}
+  .chat-panel{flex:1;min-width:0;}
+  .messages{max-height:420px;}
+}
 </style>
 </head>
 <body>
-<div class="app">
 
 <div class="header">
   <div class="header-left">
     <img class="logo" src="logo.jpg">
     <div><div class="title">J-SEY Customer Support</div><div class="subtitle">Manage customer conversations</div></div>
   </div>
-  <div class="search">🔍 <input id="searchInput" placeholder="Search by name, email or conversation ID" oninput="filterCustomers()"></div>
+  <div class="search">🔍 <input id="searchInput" placeholder="Search name, email, ID" oninput="filterCustomers()"></div>
   <div class="header-right">
     <span onclick="refreshAll()">🔄</span>
     <span style="position:relative;" onclick="clearNotifications()">🔔<span class="badge" id="notifBadge">3</span></span>
@@ -135,13 +142,13 @@ body{margin:0;font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#0
       <button onclick="reassign()">⇄ Reassign</button>
       <button onclick="setStatus('RESOLVED')">○ Resolve</button>
       <button onclick="closeConversation()">⊗ Close</button>
-      <button onclick="openOverridePanel()">👤 Assign manually</button>
+      <button onclick="openOverridePanel()">👤 Assign</button>
     </div>
     <div class="queue-banner" id="queueBanner" style="display:none;">
       <span>⏳ In queue — waiting for an available agent</span>
       <button onclick="openOverridePanel()">CEO Override</button>
     </div>
-    <div class="delay-banner" id="delayBanner" style="display:none;">⚠️ No response in 10+ min — escalated to supervisor</div>
+    <div class="delay-banner" id="delayBanner" style="display:none;">⚠️ No response in 10+ min — escalated</div>
     <div class="messages" id="messages"></div>
     <div class="reply-box">
       <span>📎</span>
@@ -171,10 +178,8 @@ body{margin:0;font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#0
 </div>
 
 <div class="closed-section">
-  <h3 style="color:#fff;margin-top:0;">Closed Conversations</h3>
+  <h3 style="color:#fff;margin-top:0;font-size:14px;">Closed Conversations</h3>
   <div id="closedList"></div>
-</div>
-
 </div>
 
 <div class="overlay" id="overridePanel">
@@ -227,7 +232,7 @@ function logAudit(convId, prevName, newName, reason){ audit.unshift({convId, pre
 function renderAudit(){ const box = document.getElementById('auditLog'); box.innerHTML = ""; audit.slice(0,6).forEach(a => { const d = document.createElement('div'); d.innerText = `${a.convId}: ${a.prevName||'—'} → ${a.newName} (${a.reason}) ${a.time}`; box.appendChild(d); }); }
 function showToast(msg){ const t = document.getElementById('toast'); t.innerText = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2200); }
 function badgeClassFor(status){ return {WAITING:"badge-waiting", ACTIVE:"badge-active", ACCEPTED:"badge-accepted", RESOLVED:"badge-resolved", CLOSED:"badge-closed", REASSIGNED:"badge-reassigned"}[status] || "badge-active"; }
-function renderStatusCounts(){ const counts = {NEW:0, ACCEPTED:0, ACTIVE:0, WAITING:0, REASSIGNED:0, RESOLVED:0}; Object.values(customers).forEach(c => { if(counts[c.status] !== undefined) counts[c.status]++; }); const list = document.getElementById('statusList'); list.innerHTML = ""; Object.keys(counts).forEach(k => { const div = document.createElement('div'); div.innerHTML = `${k.charAt(0)+k.slice(1).toLowerCase()} <span>${counts[k]}</span>`; list.appendChild(div); }); }
+function renderStatusCounts(){ const counts = {NEW:0, ACCEPTED:0, ACTIVE:0, WAITING:0, REASSIGNED:0, RESOLVED:0}; Object.values(customers).forEach(c => { if(counts[c.status] !== undefined) counts[c.status]++; }); const list = document.getElementById('statusList'); list.innerHTML = ""; Object.keys(counts).forEach(k => { const div = document.createElement('div'); div.innerHTML = `${k.charAt(0)+k.slice(1).toLowerCase()} ${counts[k]}`; list.appendChild(div); }); }
 function renderWorkload(){ const box = document.getElementById('workloadList'); box.innerHTML = ""; agents.forEach(a => { const row = document.createElement('div'); row.className = "wl-row"; row.innerHTML = `<span class="dot ${a.status}"></span><span class="name">${a.name}</span><span class="num">${a.activeChats} active</span>`; box.appendChild(row); }); }
 function renderSidebar(filter){ const list = document.getElementById('customerList'); list.innerHTML = ""; for(const id in customers){ const c = customers[id]; if(filter && !(c.name.toLowerCase().includes(filter) || c.email.toLowerCase().includes(filter) || c.convId.toLowerCase().includes(filter))) continue; const div = document.createElement('div'); div.className = "customer-card" + (id === currentId ? " selected" : ""); div.onclick = () => loadCustomer(id); div.innerHTML = `<img class="avatar" src="${c.avatar}"><div><div class="name">${c.name}</div><div class="sub">${c.messages[c.messages.length-1].text.slice(0,26)}</div><span class="badge-status ${c.delayed?'badge-delayed':badgeClassFor(c.status)}">${c.delayed?'DELAYED':c.status}</span></div>`; list.appendChild(div); } }
 function filterCustomers(){ renderSidebar(document.getElementById('searchInput').value.toLowerCase()); }
@@ -241,7 +246,7 @@ function renderClosedList(){ const box = document.getElementById('closedList'); 
 function saveNote(){ const input = document.getElementById('noteInput'); const val = input.value; if(!val) return; customers[currentId].notes.push(val); input.value = ""; renderNotes(currentId); }
 function clearNotifications(){ document.getElementById('notifBadge').innerText = "0"; }
 function refreshAll(){ renderStatusCounts(); renderWorkload(); renderSidebar(); loadCustomer(currentId); checkEscalation(); }
-function reassign(){ const online = agents.filter(a => a.status === "online"); if(online.length === 0){ customers[currentId].status = "WAITING"; customers[currentId].assignedAgent = null; loadCustomer(currentId); renderStatusCounts(); showToast("No agents free — conversation moved to queue"); return; } online.sort((a,b) => a.activeChats - b.activeChats); const chosen = online[0]; const prev = agents.find(a => a.id === customers[currentId].assignedAgent); if(prev) prev.activeChats = Math.max(0, prev.activeChats - 1); chosen.activeChats++; logAudit(customers[currentId].convId, prev?prev.name:null, chosen.name, "least active agent"); customers[currentId].assignedAgent = chosen.id; customers[currentId].status = "REASSIGNED"; loadCustomer(currentId); renderStatusCounts(); renderWorkload(); showToast("Auto-assigned to " + chosen.name); }
+function reassign(){ const online = agents.filter(a => a.status === "online"); if(online.length === 0){ customers[currentId].status = "WAITING"; customers[currentId].assignedAgent = null; loadCustomer(currentId); renderStatusCounts(); showToast("No agents free — moved to queue"); return; } online.sort((a,b) => a.activeChats - b.activeChats); const chosen = online[0]; const prev = agents.find(a => a.id === customers[currentId].assignedAgent); if(prev) prev.activeChats = Math.max(0, prev.activeChats - 1); chosen.activeChats++; logAudit(customers[currentId].convId, prev?prev.name:null, chosen.name, "least active agent"); customers[currentId].assignedAgent = chosen.id; customers[currentId].status = "REASSIGNED"; loadCustomer(currentId); renderStatusCounts(); renderWorkload(); showToast("Auto-assigned to " + chosen.name); }
 function openOverridePanel(){ const box = document.getElementById('agentOptions'); box.innerHTML = ""; agents.forEach(a => { const div = document.createElement('div'); div.className = "agent-option"; div.onclick = () => forceAssign(a.id); div.innerHTML = `<img class="avatar" src="${a.avatar}"><div><div>${a.name}</div><div class="load">${a.activeChats} active · ${a.status}</div></div><span class="dot ${a.status}"></span>`; box.appendChild(div); }); document.getElementById('overridePanel').classList.add('show'); }
 function closeOverridePanel(){ document.getElementById('overridePanel').classList.remove('show'); }
 function forceAssign(agentId){ const agent = agents.find(a => a.id === agentId); const prev = agents.find(a => a.id === customers[currentId].assignedAgent); if(prev) prev.activeChats = Math.max(0, prev.activeChats - 1); agent.activeChats++; logAudit(customers[currentId].convId, prev?prev.name:null, agent.name, "manual assign"); customers[currentId].assignedAgent = agentId; customers[currentId].status = "REASSIGNED"; closeOverridePanel(); loadCustomer(currentId); renderStatusCounts(); renderWorkload(); showToast("Manually assigned to " + agent.name); }
