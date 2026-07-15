@@ -6,10 +6,10 @@
 <title>J-SEY Customer Support</title>
 <style>
 *{box-sizing:border-box;}
-html,body{margin:0;padding:0;height:100%;overflow:hidden;}
+html,body{margin:0;padding:0;background:#0a0e1c;}
 body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#0a0e1c;color:#e5e7eb;display:flex;flex-direction:column;}
 .header{flex-shrink:0;}
-.scroll-content{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+.scroll-content{overflow-y:auto;-webkit-overflow-scrolling:touch;}
 .header{background:#11162b;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #1f2540;flex-wrap:wrap;gap:8px;}
 .header-left{display:flex;align-items:center;gap:10px;}
 .header-left img.logo{width:30px;height:30px;border-radius:8px;}
@@ -262,23 +262,6 @@ function autoReassignIfOffline(agent){ if(agent.status !== "offline") return; co
 function checkEscalation(){ const TEN_MIN = 10*60*1000; Object.values(customers).forEach(c => { if(["WAITING","ACTIVE","ACCEPTED"].includes(c.status) && Date.now() - c.lastActivity > TEN_MIN){ c.delayed = true; } }); renderSidebar(); if(currentId && customers[currentId]) loadCustomer(currentId); }
 setInterval(checkEscalation, 30000);
 renderStatusCounts(); renderWorkload(); renderSidebar(); loadCustomer(currentId); renderClosedList(); renderAudit();
-</script>
-<div id="debugBox" style="position:fixed;top:0;left:0;right:0;background:#000;color:#0f0;font:10px monospace;padding:8px;z-index:9999;max-height:100vh;overflow-y:auto;white-space:pre-wrap;"></div>
-<script>
-window.addEventListener('load', function(){
-  setTimeout(function(){
-    let out = '';
-    out += 'innerWidth='+window.innerWidth+' innerHeight='+window.innerHeight+'\n';
-    out += 'body.scrollHeight='+document.body.scrollHeight+' docEl.scrollHeight='+document.documentElement.scrollHeight+'\n';
-    out += '--- direct body children ---\n';
-    Array.from(document.body.children).forEach(function(el){
-      if(el.id === 'debugBox') return;
-      const r = el.getBoundingClientRect();
-      out += (el.className||el.tagName)+' | offsetHeight='+el.offsetHeight+' top='+Math.round(r.top)+' bottom='+Math.round(r.bottom)+'\n';
-    });
-    document.getElementById('debugBox').innerText = out;
-  }, 500);
-});
 </script>
 </body>
 </html>
