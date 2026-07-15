@@ -6,101 +6,104 @@
 <title>J-SEY Customer Support</title>
 <style>
 *{box-sizing:border-box;}
-body{margin:0;font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#eef1f6;color:#1a1a2e;}
-.header{background:#fff;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e5e7eb;}
+body{margin:0;font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#0a0e1c;color:#e5e7eb;overflow-x:auto;}
+.app{min-width:1000px;display:flex;flex-direction:column;}
+.header{background:#11162b;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #1f2540;}
 .header-left{display:flex;align-items:center;gap:10px;}
 .header-left img.logo{width:34px;height:34px;border-radius:8px;}
-.header-left .title{font-weight:700;font-size:16px;}
-.header-left .subtitle{font-size:12px;color:#888;}
-.search{width:320px;flex-shrink:0;display:flex;align-items:center;background:#f3f4f6;border-radius:8px;padding:8px 12px;color:#999;font-size:13px;margin:0 auto;gap:6px;}
-.search input{border:none;background:transparent;outline:none;font-size:13px;flex:1;}
-.header-right{display:flex;align-items:center;gap:16px;font-size:18px;color:#555;flex-shrink:0;}
+.header-left .title{font-weight:700;font-size:16px;color:#fff;}
+.header-left .subtitle{font-size:12px;color:#8891b0;}
+.search{width:320px;flex-shrink:0;display:flex;align-items:center;background:#1a2038;border-radius:8px;padding:8px 12px;color:#8891b0;font-size:13px;margin:0 auto;gap:6px;}
+.search input{border:none;background:transparent;outline:none;font-size:13px;flex:1;color:#e5e7eb;}
+.header-right{display:flex;align-items:center;gap:16px;font-size:18px;color:#8891b0;flex-shrink:0;}
 .header-right span{cursor:pointer;}
 .badge{background:#ef4444;color:#fff;font-size:10px;padding:1px 5px;border-radius:8px;position:relative;top:-8px;left:-6px;}
 .avatar{width:28px;height:28px;border-radius:50%;object-fit:cover;flex-shrink:0;}
-.agent-name{font-size:13px;font-weight:600;cursor:pointer;}
+.agent-name{font-size:13px;font-weight:600;cursor:pointer;color:#e5e7eb;}
 .mystatus{font-size:11px;padding:2px 8px;border-radius:10px;cursor:pointer;font-weight:600;}
-.st-online{background:#dcfce7;color:#15803d;}
-.st-busy{background:#fee2e2;color:#b91c1c;}
-.st-away{background:#fef3c7;color:#92400e;}
-.st-offline{background:#f3f4f6;color:#666;}
+.st-online{background:#0f3d2a;color:#4ade80;}
+.st-busy{background:#3d1414;color:#f87171;}
+.st-away{background:#3d2f0f;color:#fbbf24;}
+.st-offline{background:#1a2038;color:#8891b0;}
 
-.layout{display:flex;padding:16px;gap:16px;}
-.sidebar{width:250px;background:#fff;border-radius:10px;padding:12px;height:fit-content;}
-.status-list div{display:flex;justify-content:space-between;padding:7px 6px;font-size:12px;border-radius:6px;color:#444;}
-.customer-list{margin-top:12px;border-top:1px solid #eee;padding-top:8px;}
+.layout{display:flex;padding:14px;gap:14px;}
+.sidebar{width:230px;flex-shrink:0;background:#11162b;border-radius:10px;padding:12px;height:600px;overflow-y:auto;}
+.status-list div{display:flex;justify-content:space-between;padding:7px 6px;font-size:12px;border-radius:6px;color:#8891b0;}
+.customer-list{margin-top:12px;border-top:1px solid #1f2540;padding-top:8px;}
 .customer-card{display:flex;gap:10px;padding:10px 6px;border-radius:8px;cursor:pointer;}
-.customer-card:hover{background:#f5f7fb;}
-.customer-card.selected{background:#eaf1ff;}
-.customer-card .name{font-weight:600;font-size:13px;}
-.customer-card .sub{font-size:11px;color:#888;}
+.customer-card:hover{background:#1a2038;}
+.customer-card.selected{background:#1e2a52;}
+.customer-card .name{font-weight:600;font-size:13px;color:#fff;}
+.customer-card .sub{font-size:11px;color:#8891b0;}
 .badge-status{font-size:10px;font-weight:700;padding:2px 6px;border-radius:5px;}
-.badge-waiting{background:#fef3c7;color:#b45309;}
-.badge-active{background:#dcfce7;color:#15803d;}
-.badge-accepted{background:#e0e7ff;color:#3730a3;}
-.badge-resolved{background:#dbeafe;color:#1d4ed8;}
-.badge-closed{background:#f3f4f6;color:#555;}
-.badge-reassigned{background:#fae8ff;color:#86198f;}
-.badge-delayed{background:#fecaca;color:#991b1b;}
+.badge-waiting{background:#3d2f0f;color:#fbbf24;}
+.badge-active{background:#0f3d2a;color:#4ade80;}
+.badge-accepted{background:#1e2350;color:#a5b4fc;}
+.badge-resolved{background:#0f2d4d;color:#60a5fa;}
+.badge-closed{background:#1a2038;color:#8891b0;}
+.badge-reassigned{background:#3d1a4d;color:#e0a5f0;}
+.badge-delayed{background:#3d1414;color:#f87171;}
 
-.workload{width:220px;background:#fff;border-radius:10px;padding:12px;height:fit-content;}
-.workload h3{font-size:13px;margin:0 0 10px;}
-.wl-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #f2f2f2;font-size:12px;}
+.workload{width:200px;flex-shrink:0;background:#11162b;border-radius:10px;padding:12px;height:600px;overflow-y:auto;}
+.workload h3{font-size:13px;margin:0 0 10px;color:#fff;}
+.wl-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #1f2540;font-size:12px;}
 .wl-row .dot{width:8px;height:8px;border-radius:50%;}
-.wl-row .name{flex:1;font-weight:600;}
-.wl-row .num{color:#888;}
+.wl-row .name{flex:1;font-weight:600;color:#e5e7eb;}
+.wl-row .num{color:#8891b0;}
+#auditLog div{font-size:11px;color:#8891b0;padding:4px 0;border-bottom:1px solid #1a2038;}
 
-.chat-panel{flex:1;background:#fff;border-radius:10px;display:flex;flex-direction:column;position:relative;}
-.chat-header{padding:14px 18px;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between;}
-.chat-header .who{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;}
-.chat-actions{padding:10px 18px;display:flex;gap:8px;border-bottom:1px solid #f0f0f0;flex-wrap:wrap;}
-.chat-actions button{border:none;padding:8px 14px;border-radius:6px;font-size:12px;cursor:pointer;background:#f3f4f6;color:#333;}
-.chat-actions button.primary{background:#2563eb;color:#fff;}
-.queue-banner{background:#fef3c7;color:#92400e;padding:10px 18px;font-size:12px;display:flex;justify-content:space-between;align-items:center;}
+.chat-panel{flex:1;min-width:0;background:#11162b;border-radius:10px;display:flex;flex-direction:column;height:600px;}
+.chat-header{padding:12px 16px;border-bottom:1px solid #1f2540;display:flex;align-items:center;justify-content:space-between;}
+.chat-header .who{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:#fff;}
+.chat-actions{padding:8px 16px;display:flex;gap:8px;border-bottom:1px solid #1a2038;flex-wrap:wrap;}
+.chat-actions button{border:none;padding:8px 14px;border-radius:6px;font-size:12px;cursor:pointer;background:#1a2038;color:#e5e7eb;}
+.chat-actions button.primary{background:#5b5bf5;color:#fff;}
+.queue-banner{background:#241c0a;color:#fbbf24;padding:10px 16px;font-size:12px;display:flex;justify-content:space-between;align-items:center;}
 .queue-banner button{border:none;background:#b45309;color:#fff;padding:6px 12px;border-radius:6px;font-size:11px;cursor:pointer;}
-.delay-banner{background:#fecaca;color:#991b1b;padding:8px 18px;font-size:12px;}
-.messages{flex:1;padding:18px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;min-height:200px;}
+.delay-banner{background:#2a1010;color:#f87171;padding:8px 16px;font-size:12px;}
+.messages{flex:1;padding:16px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;min-height:0;}
 .msg-row{display:flex;gap:8px;align-items:flex-end;}
 .msg-row.agent{flex-direction:row-reverse;}
 .bubble{max-width:55%;padding:10px 14px;border-radius:12px;font-size:13px;}
-.msg-row.customer .bubble{background:#f3f4f6;}
-.msg-row.agent .bubble{background:#2563eb;color:#fff;}
-.reply-box{display:flex;align-items:center;gap:10px;padding:12px 18px;border-top:1px solid #eee;}
-.reply-box input{flex:1;border:1px solid #ddd;border-radius:8px;padding:10px 12px;font-size:13px;}
-.reply-box button{background:#2563eb;color:#fff;border:none;padding:10px 18px;border-radius:8px;cursor:pointer;font-size:13px;}
+.msg-row.customer .bubble{background:#1a2038;color:#e5e7eb;}
+.msg-row.agent .bubble{background:#5b5bf5;color:#fff;}
+.reply-box{display:flex;align-items:center;gap:10px;padding:10px 16px;border-top:1px solid #1f2540;}
+.reply-box input{flex:1;border:1px solid #2a3155;background:#0d1224;color:#e5e7eb;border-radius:8px;padding:10px 12px;font-size:13px;}
+.reply-box button{background:#5b5bf5;color:#fff;border:none;padding:10px 18px;border-radius:8px;cursor:pointer;font-size:13px;}
 
-.info-panel{width:260px;background:#fff;border-radius:10px;padding:16px;height:fit-content;}
-.info-panel h3{font-size:13px;margin:0 0 10px;}
+.info-panel{width:230px;flex-shrink:0;background:#11162b;border-radius:10px;padding:14px;height:600px;overflow-y:auto;}
+.info-panel h3{font-size:13px;margin:0 0 10px;color:#fff;}
 .info-row{font-size:13px;margin-bottom:10px;}
-.info-row span{display:block;font-size:11px;color:#999;}
-.note-box{width:100%;border:1px solid #ddd;border-radius:8px;padding:8px;font-size:12px;}
-#savedNotes div{font-size:12px;background:#f9fafb;border-radius:6px;padding:6px 8px;margin-top:6px;}
-#auditLog div{font-size:11px;color:#666;padding:4px 0;border-bottom:1px solid #f5f5f5;}
+.info-row span{display:block;font-size:11px;color:#8891b0;}
+.info-row b{color:#e5e7eb;}
+.note-box{width:100%;border:1px solid #2a3155;background:#0d1224;color:#e5e7eb;border-radius:8px;padding:8px;font-size:12px;}
+#savedNotes div{font-size:12px;background:#1a2038;color:#e5e7eb;border-radius:6px;padding:6px 8px;margin-top:6px;}
 
-.closed-section{margin:0 16px 16px;background:#fff;border-radius:10px;padding:16px;}
-.closed-row{display:flex;align-items:center;padding:8px 0;border-bottom:1px solid #f2f2f2;font-size:13px;}
+.closed-section{margin:0 14px 14px;background:#11162b;border-radius:10px;padding:14px;}
+.closed-row{display:flex;align-items:center;padding:7px 0;border-bottom:1px solid #1a2038;font-size:12px;}
 .closed-row .avatar{margin-right:10px;}
-.closed-row .col{flex:1;color:#555;}
-.closed-row .status{color:#999;font-size:11px;font-weight:700;}
+.closed-row .col{flex:1;color:#8891b0;}
+.closed-row .status{color:#8891b0;font-size:11px;font-weight:700;}
 
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.35);display:none;align-items:center;justify-content:center;z-index:50;}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:50;}
 .overlay.show{display:flex;}
-.panel{background:#fff;border-radius:12px;width:320px;padding:18px;}
-.panel h4{margin:0 0 12px;font-size:14px;}
-.agent-option{display:flex;align-items:center;gap:10px;padding:10px;border-radius:8px;cursor:pointer;border:1px solid #eee;margin-bottom:8px;}
-.agent-option:hover{background:#f5f7fb;}
+.panel{background:#11162b;border-radius:12px;width:300px;padding:18px;color:#e5e7eb;}
+.panel h4{margin:0 0 12px;font-size:14px;color:#fff;}
+.agent-option{display:flex;align-items:center;gap:10px;padding:10px;border-radius:8px;cursor:pointer;border:1px solid #1f2540;margin-bottom:8px;}
+.agent-option:hover{background:#1a2038;}
 .agent-option .dot{width:8px;height:8px;border-radius:50%;margin-left:auto;}
-.dot.online{background:#22c55e;} .dot.busy{background:#ef4444;} .dot.away{background:#f59e0b;} .dot.offline{background:#d1d5db;}
-.agent-option .load{font-size:11px;color:#888;}
-.panel-close{margin-top:6px;text-align:center;font-size:12px;color:#999;cursor:pointer;}
-.status-option{display:flex;align-items:center;gap:10px;padding:10px;border-radius:8px;cursor:pointer;border:1px solid #eee;margin-bottom:8px;}
-.status-option:hover{background:#f5f7fb;}
+.dot.online{background:#4ade80;} .dot.busy{background:#f87171;} .dot.away{background:#fbbf24;} .dot.offline{background:#4b5468;}
+.agent-option .load{font-size:11px;color:#8891b0;}
+.panel-close{margin-top:6px;text-align:center;font-size:12px;color:#8891b0;cursor:pointer;}
+.status-option{display:flex;align-items:center;gap:10px;padding:10px;border-radius:8px;cursor:pointer;border:1px solid #1f2540;margin-bottom:8px;}
+.status-option:hover{background:#1a2038;}
 
-.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1a1a2e;color:#fff;padding:10px 18px;border-radius:8px;font-size:13px;opacity:0;transition:opacity .3s;z-index:60;}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#5b5bf5;color:#fff;padding:10px 18px;border-radius:8px;font-size:13px;opacity:0;transition:opacity .3s;z-index:60;}
 .toast.show{opacity:1;}
 </style>
 </head>
 <body>
+<div class="app">
 
 <div class="header">
   <div class="header-left">
@@ -168,8 +171,10 @@ body{margin:0;font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#e
 </div>
 
 <div class="closed-section">
-  <h3>Closed Conversations</h3>
+  <h3 style="color:#fff;margin-top:0;">Closed Conversations</h3>
   <div id="closedList"></div>
+</div>
+
 </div>
 
 <div class="overlay" id="overridePanel">
@@ -207,7 +212,6 @@ const agents = [
   {id:"a3", name:"Ruth O", avatar:"https://i.pravatar.cc/40?img=25", status:"offline", activeChats:0},
   {id:"ceo", name:"Ugoo (CEO)", avatar:"https://i.pravatar.cc/40?img=60", status:"online", activeChats:0}
 ];
-
 const customers = {
   "cust-001": {name:"John Customer", email:"john@example.com", convId:"CONV-50381", status:"WAITING", avatar:"https://i.pravatar.cc/40?img=1", notes:[], assignedAgent:null, lastActivity:Date.now(), delayed:false,
     messages:[{from:"customer",text:"Hello, I need support with my account."},{from:"agent",text:"Hello John, how can I assist you today?"}]},
@@ -219,292 +223,35 @@ const customers = {
 const closedConvos = [];
 const audit = [];
 let currentId = "cust-001";
-let handoverAgentId = null;
-
-function logAudit(convId, prevName, newName, reason){
-  audit.unshift({convId, prevName, newName, reason, time:new Date().toLocaleTimeString()});
-  renderAudit();
-}
-function renderAudit(){
-  const box = document.getElementById('auditLog');
-  box.innerHTML = "";
-  audit.slice(0,6).forEach(a => {
-    const d = document.createElement('div');
-    d.innerText = `${a.convId}: ${a.prevName||'—'} → ${a.newName} (${a.reason}) ${a.time}`;
-    box.appendChild(d);
-  });
-}
-
-function showToast(msg){
-  const t = document.getElementById('toast');
-  t.innerText = msg; t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2200);
-}
-
-function badgeClassFor(status){
-  return {WAITING:"badge-waiting", ACTIVE:"badge-active", ACCEPTED:"badge-accepted", RESOLVED:"badge-resolved", CLOSED:"badge-closed", REASSIGNED:"badge-reassigned"}[status] || "badge-active";
-}
-
-function renderStatusCounts(){
-  const counts = {NEW:0, ACCEPTED:0, ACTIVE:0, WAITING:0, REASSIGNED:0, RESOLVED:0};
-  Object.values(customers).forEach(c => { if(counts[c.status] !== undefined) counts[c.status]++; });
-  const list = document.getElementById('statusList');
-  list.innerHTML = "";
-  Object.keys(counts).forEach(k => {
-    const div = document.createElement('div');
-    div.innerHTML = `${k.charAt(0)+k.slice(1).toLowerCase()} <span>${counts[k]}</span>`;
-    list.appendChild(div);
-  });
-}
-
-function renderWorkload(){
-  const box = document.getElementById('workloadList');
-  box.innerHTML = "";
-  agents.forEach(a => {
-    const row = document.createElement('div');
-    row.className = "wl-row";
-    row.innerHTML = `<span class="dot ${a.status}"></span><span class="name">${a.name}</span><span class="num">${a.activeChats} active</span>`;
-    box.appendChild(row);
-  });
-}
-
-function renderSidebar(filter){
-  const list = document.getElementById('customerList');
-  list.innerHTML = "";
-  for(const id in customers){
-    const c = customers[id];
-    if(filter && !(c.name.toLowerCase().includes(filter) || c.email.toLowerCase().includes(filter) || c.convId.toLowerCase().includes(filter))) continue;
-    const div = document.createElement('div');
-    div.className = "customer-card" + (id === currentId ? " selected" : "");
-    div.onclick = () => loadCustomer(id);
-    div.innerHTML = `<img class="avatar" src="${c.avatar}"><div><div class="name">${c.name}</div><div class="sub">${c.messages[c.messages.length-1].text.slice(0,26)}</div><span class="badge-status ${c.delayed?'badge-delayed':badgeClassFor(c.status)}">${c.delayed?'DELAYED':c.status}</span></div>`;
-    list.appendChild(div);
-  }
-}
+function logAudit(convId, prevName, newName, reason){ audit.unshift({convId, prevName, newName, reason, time:new Date().toLocaleTimeString()}); renderAudit(); }
+function renderAudit(){ const box = document.getElementById('auditLog'); box.innerHTML = ""; audit.slice(0,6).forEach(a => { const d = document.createElement('div'); d.innerText = `${a.convId}: ${a.prevName||'—'} → ${a.newName} (${a.reason}) ${a.time}`; box.appendChild(d); }); }
+function showToast(msg){ const t = document.getElementById('toast'); t.innerText = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2200); }
+function badgeClassFor(status){ return {WAITING:"badge-waiting", ACTIVE:"badge-active", ACCEPTED:"badge-accepted", RESOLVED:"badge-resolved", CLOSED:"badge-closed", REASSIGNED:"badge-reassigned"}[status] || "badge-active"; }
+function renderStatusCounts(){ const counts = {NEW:0, ACCEPTED:0, ACTIVE:0, WAITING:0, REASSIGNED:0, RESOLVED:0}; Object.values(customers).forEach(c => { if(counts[c.status] !== undefined) counts[c.status]++; }); const list = document.getElementById('statusList'); list.innerHTML = ""; Object.keys(counts).forEach(k => { const div = document.createElement('div'); div.innerHTML = `${k.charAt(0)+k.slice(1).toLowerCase()} <span>${counts[k]}</span>`; list.appendChild(div); }); }
+function renderWorkload(){ const box = document.getElementById('workloadList'); box.innerHTML = ""; agents.forEach(a => { const row = document.createElement('div'); row.className = "wl-row"; row.innerHTML = `<span class="dot ${a.status}"></span><span class="name">${a.name}</span><span class="num">${a.activeChats} active</span>`; box.appendChild(row); }); }
+function renderSidebar(filter){ const list = document.getElementById('customerList'); list.innerHTML = ""; for(const id in customers){ const c = customers[id]; if(filter && !(c.name.toLowerCase().includes(filter) || c.email.toLowerCase().includes(filter) || c.convId.toLowerCase().includes(filter))) continue; const div = document.createElement('div'); div.className = "customer-card" + (id === currentId ? " selected" : ""); div.onclick = () => loadCustomer(id); div.innerHTML = `<img class="avatar" src="${c.avatar}"><div><div class="name">${c.name}</div><div class="sub">${c.messages[c.messages.length-1].text.slice(0,26)}</div><span class="badge-status ${c.delayed?'badge-delayed':badgeClassFor(c.status)}">${c.delayed?'DELAYED':c.status}</span></div>`; list.appendChild(div); } }
 function filterCustomers(){ renderSidebar(document.getElementById('searchInput').value.toLowerCase()); }
-
-function renderMessages(id){
-  const c = customers[id];
-  const box = document.getElementById('messages');
-  box.innerHTML = "";
-  c.messages.forEach(m => {
-    const row = document.createElement('div');
-    row.className = "msg-row " + m.from;
-    const av = m.from === "agent" ? "https://i.pravatar.cc/40?img=47" : c.avatar;
-    row.innerHTML = `<img class="avatar" src="${av}"><div class="bubble"></div>`;
-    row.querySelector('.bubble').innerText = m.text;
-    box.appendChild(row);
-  });
-  box.scrollTop = box.scrollHeight;
-}
-function renderNotes(id){
-  const box = document.getElementById('savedNotes');
-  box.innerHTML = "";
-  customers[id].notes.forEach(n => { const d = document.createElement('div'); d.innerText = n; box.appendChild(d); });
-}
-
-function loadCustomer(id){
-  currentId = id;
-  const c = customers[id];
-  document.getElementById('chatAvatar').src = c.avatar;
-  document.getElementById('chatName').innerText = c.name;
-  document.getElementById('chatBadge').innerText = c.delayed ? "DELAYED" : c.status;
-  document.getElementById('chatBadge').className = "badge-status " + (c.delayed?"badge-delayed":badgeClassFor(c.status));
-  document.getElementById('infoName').innerText = c.name;
-  document.getElementById('infoEmail').innerText = c.email;
-  document.getElementById('infoConvId').innerText = c.convId;
-  document.getElementById('infoStatus').innerText = c.status;
-  document.getElementById('infoStatus').className = "badge-status " + badgeClassFor(c.status);
-  const agentObj = agents.find(a => a.id === c.assignedAgent);
-  document.getElementById('infoAgent').innerText = agentObj ? agentObj.name : "Unassigned";
-  document.getElementById('queueBanner').style.display = c.status === "WAITING" ? "flex" : "none";
-  document.getElementById('delayBanner').style.display = c.delayed ? "block" : "none";
-  renderMessages(id); renderNotes(id); renderSidebar();
-}
-
-function sendReply(){
-  const input = document.getElementById('replyInput');
-  const val = input.value;
-  if(!val) return;
-  customers[currentId].messages.push({from:"agent", text:val});
-  customers[currentId].lastActivity = Date.now();
-  customers[currentId].delayed = false;
-  input.value = "";
-  renderMessages(currentId); renderSidebar(); loadCustomer(currentId);
-}
-
-function setStatus(status){
-  customers[currentId].status = status;
-  customers[currentId].lastActivity = Date.now();
-  customers[currentId].delayed = false;
-  loadCustomer(currentId); renderStatusCounts();
-}
-
-function closeConversation(){
-  const c = customers[currentId];
-  closedConvos.push({name:c.name, email:c.email, avatar:c.avatar, date:new Date().toLocaleDateString()});
-  const agentObj = agents.find(a => a.id === c.assignedAgent);
-  if(agentObj) agentObj.activeChats = Math.max(0, agentObj.activeChats - 1);
-  delete customers[currentId];
-  renderClosedList(); renderWorkload();
-  const remaining = Object.keys(customers);
-  if(remaining.length){ loadCustomer(remaining[0]); }
-  else{ document.getElementById('messages').innerHTML = "<p style='color:#999'>No conversations left.</p>"; }
-  renderStatusCounts(); renderSidebar();
-}
-
-function renderClosedList(){
-  const box = document.getElementById('closedList');
-  box.innerHTML = "";
-  closedConvos.forEach(c => {
-    const row = document.createElement('div');
-    row.className = "closed-row";
-    row.innerHTML = `<img class="avatar" src="${c.avatar}"><div class="col">${c.name}</div><div class="col">${c.email}</div><div class="col">${c.date}</div><div class="status">CLOSED</div>`;
-    box.appendChild(row);
-  });
-}
-
-function saveNote(){
-  const input = document.getElementById('noteInput');
-  const val = input.value;
-  if(!val) return;
-  customers[currentId].notes.push(val);
-  input.value = "";
-  renderNotes(currentId);
-}
-
+function renderMessages(id){ const c = customers[id]; const box = document.getElementById('messages'); box.innerHTML = ""; c.messages.forEach(m => { const row = document.createElement('div'); row.className = "msg-row " + m.from; const av = m.from === "agent" ? "https://i.pravatar.cc/40?img=47" : c.avatar; row.innerHTML = `<img class="avatar" src="${av}"><div class="bubble"></div>`; row.querySelector('.bubble').innerText = m.text; box.appendChild(row); }); box.scrollTop = box.scrollHeight; }
+function renderNotes(id){ const box = document.getElementById('savedNotes'); box.innerHTML = ""; customers[id].notes.forEach(n => { const d = document.createElement('div'); d.innerText = n; box.appendChild(d); }); }
+function loadCustomer(id){ currentId = id; const c = customers[id]; document.getElementById('chatAvatar').src = c.avatar; document.getElementById('chatName').innerText = c.name; document.getElementById('chatBadge').innerText = c.delayed ? "DELAYED" : c.status; document.getElementById('chatBadge').className = "badge-status " + (c.delayed?"badge-delayed":badgeClassFor(c.status)); document.getElementById('infoName').innerText = c.name; document.getElementById('infoEmail').innerText = c.email; document.getElementById('infoConvId').innerText = c.convId; document.getElementById('infoStatus').innerText = c.status; document.getElementById('infoStatus').className = "badge-status " + badgeClassFor(c.status); const agentObj = agents.find(a => a.id === c.assignedAgent); document.getElementById('infoAgent').innerText = agentObj ? agentObj.name : "Unassigned"; document.getElementById('queueBanner').style.display = c.status === "WAITING" ? "flex" : "none"; document.getElementById('delayBanner').style.display = c.delayed ? "block" : "none"; renderMessages(id); renderNotes(id); renderSidebar(); }
+function sendReply(){ const input = document.getElementById('replyInput'); const val = input.value; if(!val) return; customers[currentId].messages.push({from:"agent", text:val}); customers[currentId].lastActivity = Date.now(); customers[currentId].delayed = false; input.value = ""; renderMessages(currentId); renderSidebar(); loadCustomer(currentId); }
+function setStatus(status){ customers[currentId].status = status; customers[currentId].lastActivity = Date.now(); customers[currentId].delayed = false; loadCustomer(currentId); renderStatusCounts(); }
+function closeConversation(){ const c = customers[currentId]; closedConvos.push({name:c.name, email:c.email, avatar:c.avatar, date:new Date().toLocaleDateString()}); const agentObj = agents.find(a => a.id === c.assignedAgent); if(agentObj) agentObj.activeChats = Math.max(0, agentObj.activeChats - 1); delete customers[currentId]; renderClosedList(); renderWorkload(); const remaining = Object.keys(customers); if(remaining.length){ loadCustomer(remaining[0]); } else{ document.getElementById('messages').innerHTML = "<p style='color:#8891b0'>No conversations left.</p>"; } renderStatusCounts(); renderSidebar(); }
+function renderClosedList(){ const box = document.getElementById('closedList'); box.innerHTML = ""; closedConvos.forEach(c => { const row = document.createElement('div'); row.className = "closed-row"; row.innerHTML = `<img class="avatar" src="${c.avatar}"><div class="col">${c.name}</div><div class="col">${c.email}</div><div class="col">${c.date}</div><div class="status">CLOSED</div>`; box.appendChild(row); }); }
+function saveNote(){ const input = document.getElementById('noteInput'); const val = input.value; if(!val) return; customers[currentId].notes.push(val); input.value = ""; renderNotes(currentId); }
 function clearNotifications(){ document.getElementById('notifBadge').innerText = "0"; }
 function refreshAll(){ renderStatusCounts(); renderWorkload(); renderSidebar(); loadCustomer(currentId); checkEscalation(); }
-
-/* ---- LEAST-ACTIVE AUTO ASSIGN ---- */
-function reassign(){
-  const online = agents.filter(a => a.status === "online");
-  if(online.length === 0){
-    customers[currentId].status = "WAITING";
-    customers[currentId].assignedAgent = null;
-    loadCustomer(currentId); renderStatusCounts();
-    showToast("No agents free — conversation moved to queue");
-    return;
-  }
-  online.sort((a,b) => a.activeChats - b.activeChats);
-  const chosen = online[0];
-  const prev = agents.find(a => a.id === customers[currentId].assignedAgent);
-  if(prev) prev.activeChats = Math.max(0, prev.activeChats - 1);
-  chosen.activeChats++;
-  logAudit(customers[currentId].convId, prev?prev.name:null, chosen.name, "least active agent");
-  customers[currentId].assignedAgent = chosen.id;
-  customers[currentId].status = "REASSIGNED";
-  loadCustomer(currentId); renderStatusCounts(); renderWorkload();
-  showToast("Auto-assigned to " + chosen.name);
-}
-
-function openOverridePanel(){
-  const box = document.getElementById('agentOptions');
-  box.innerHTML = "";
-  agents.forEach(a => {
-    const div = document.createElement('div');
-    div.className = "agent-option";
-    div.onclick = () => forceAssign(a.id);
-    div.innerHTML = `<img class="avatar" src="${a.avatar}"><div><div>${a.name}</div><div class="load">${a.activeChats} active · ${a.status}</div></div><span class="dot ${a.status}"></span>`;
-    box.appendChild(div);
-  });
-  document.getElementById('overridePanel').classList.add('show');
-}
+function reassign(){ const online = agents.filter(a => a.status === "online"); if(online.length === 0){ customers[currentId].status = "WAITING"; customers[currentId].assignedAgent = null; loadCustomer(currentId); renderStatusCounts(); showToast("No agents free — conversation moved to queue"); return; } online.sort((a,b) => a.activeChats - b.activeChats); const chosen = online[0]; const prev = agents.find(a => a.id === customers[currentId].assignedAgent); if(prev) prev.activeChats = Math.max(0, prev.activeChats - 1); chosen.activeChats++; logAudit(customers[currentId].convId, prev?prev.name:null, chosen.name, "least active agent"); customers[currentId].assignedAgent = chosen.id; customers[currentId].status = "REASSIGNED"; loadCustomer(currentId); renderStatusCounts(); renderWorkload(); showToast("Auto-assigned to " + chosen.name); }
+function openOverridePanel(){ const box = document.getElementById('agentOptions'); box.innerHTML = ""; agents.forEach(a => { const div = document.createElement('div'); div.className = "agent-option"; div.onclick = () => forceAssign(a.id); div.innerHTML = `<img class="avatar" src="${a.avatar}"><div><div>${a.name}</div><div class="load">${a.activeChats} active · ${a.status}</div></div><span class="dot ${a.status}"></span>`; box.appendChild(div); }); document.getElementById('overridePanel').classList.add('show'); }
 function closeOverridePanel(){ document.getElementById('overridePanel').classList.remove('show'); }
-
-function forceAssign(agentId){
-  const agent = agents.find(a => a.id === agentId);
-  const prev = agents.find(a => a.id === customers[currentId].assignedAgent);
-  if(prev) prev.activeChats = Math.max(0, prev.activeChats - 1);
-  agent.activeChats++;
-  logAudit(customers[currentId].convId, prev?prev.name:null, agent.name, "manual assign");
-  customers[currentId].assignedAgent = agentId;
-  customers[currentId].status = "REASSIGNED";
-  closeOverridePanel();
-  loadCustomer(currentId); renderStatusCounts(); renderWorkload();
-  showToast("Manually assigned to " + agent.name);
-}
-
-/* ---- MY STATUS + HANDOVER ---- */
-function openStatusPanel(){
-  const box = document.getElementById('statusOptions');
-  box.innerHTML = "";
-  ["online","busy","away","offline"].forEach(s => {
-    const div = document.createElement('div');
-    div.className = "status-option";
-    div.onclick = () => setMyStatus(s);
-    div.innerHTML = `<span class="dot ${s}"></span> ${s.charAt(0).toUpperCase()+s.slice(1)}`;
-    box.appendChild(div);
-  });
-  document.getElementById('statusPanel').classList.add('show');
-}
+function forceAssign(agentId){ const agent = agents.find(a => a.id === agentId); const prev = agents.find(a => a.id === customers[currentId].assignedAgent); if(prev) prev.activeChats = Math.max(0, prev.activeChats - 1); agent.activeChats++; logAudit(customers[currentId].convId, prev?prev.name:null, agent.name, "manual assign"); customers[currentId].assignedAgent = agentId; customers[currentId].status = "REASSIGNED"; closeOverridePanel(); loadCustomer(currentId); renderStatusCounts(); renderWorkload(); showToast("Manually assigned to " + agent.name); }
+function openStatusPanel(){ const box = document.getElementById('statusOptions'); box.innerHTML = ""; ["online","busy","away","offline"].forEach(s => { const div = document.createElement('div'); div.className = "status-option"; div.onclick = () => setMyStatus(s); div.innerHTML = `<span class="dot ${s}"></span> ${s.charAt(0).toUpperCase()+s.slice(1)}`; box.appendChild(div); }); document.getElementById('statusPanel').classList.add('show'); }
 function closeStatusPanel(){ document.getElementById('statusPanel').classList.remove('show'); }
-
-function setMyStatus(s){
-  const me = agents.find(a => a.id === meId);
-  closeStatusPanel();
-  if(s === "offline" && me.activeChats > 0){
-    document.getElementById('handoverPanel').classList.add('show');
-    return;
-  }
-  me.status = s;
-  const badge = document.getElementById('myStatusBadge');
-  badge.className = "mystatus st-" + s;
-  badge.innerText = s.charAt(0).toUpperCase()+s.slice(1) + " ▾";
-  renderWorkload();
-  autoReassignIfOffline(me);
-}
-
-function handoverChoice(choice){
-  document.getElementById('handoverPanel').classList.remove('show');
-  const me = agents.find(a => a.id === meId);
-  me.status = "offline";
-  const badge = document.getElementById('myStatusBadge');
-  badge.className = "mystatus st-offline";
-  badge.innerText = "Offline ▾";
-  if(choice === "all"){ autoReassignIfOffline(me); showToast("All conversations transferred"); }
-  else if(choice === "select"){ showToast("Open each conversation and use Reassign to pick manually"); }
-  else{ showToast("Conversations remain assigned to you until resolved"); }
-  renderWorkload();
-}
-
-function autoReassignIfOffline(agent){
-  if(agent.status !== "offline") return;
-  const online = agents.filter(a => a.status === "online" && a.id !== agent.id);
-  Object.keys(customers).forEach(id => {
-    const c = customers[id];
-    if(c.assignedAgent === agent.id && ["ACTIVE","ACCEPTED","REASSIGNED"].includes(c.status)){
-      if(online.length){
-        online.sort((a,b) => a.activeChats - b.activeChats);
-        const chosen = online[0];
-        chosen.activeChats++;
-        logAudit(c.convId, agent.name, chosen.name, "agent went offline");
-        c.assignedAgent = chosen.id;
-      } else {
-        c.status = "WAITING";
-        c.assignedAgent = null;
-        logAudit(c.convId, agent.name, "Queue", "no agents available");
-      }
-    }
-  });
-  agent.activeChats = 0;
-  renderSidebar(); renderStatusCounts(); renderWorkload();
-  if(currentId) loadCustomer(currentId);
-}
-
-/* ---- ESCALATION TIMER (10 min) ---- */
-function checkEscalation(){
-  const TEN_MIN = 10*60*1000;
-  Object.values(customers).forEach(c => {
-    if(["WAITING","ACTIVE","ACCEPTED"].includes(c.status) && Date.now() - c.lastActivity > TEN_MIN){
-      c.delayed = true;
-    }
-  });
-  renderSidebar();
-  if(currentId && customers[currentId]) loadCustomer(currentId);
-}
+function setMyStatus(s){ const me = agents.find(a => a.id === meId); closeStatusPanel(); if(s === "offline" && me.activeChats > 0){ document.getElementById('handoverPanel').classList.add('show'); return; } me.status = s; const badge = document.getElementById('myStatusBadge'); badge.className = "mystatus st-" + s; badge.innerText = s.charAt(0).toUpperCase()+s.slice(1) + " ▾"; renderWorkload(); autoReassignIfOffline(me); }
+function handoverChoice(choice){ document.getElementById('handoverPanel').classList.remove('show'); const me = agents.find(a => a.id === meId); me.status = "offline"; const badge = document.getElementById('myStatusBadge'); badge.className = "mystatus st-offline"; badge.innerText = "Offline ▾"; if(choice === "all"){ autoReassignIfOffline(me); showToast("All conversations transferred"); } else if(choice === "select"){ showToast("Open each conversation and use Reassign to pick manually"); } else{ showToast("Conversations remain assigned to you until resolved"); } renderWorkload(); }
+function autoReassignIfOffline(agent){ if(agent.status !== "offline") return; const online = agents.filter(a => a.status === "online" && a.id !== agent.id); Object.keys(customers).forEach(id => { const c = customers[id]; if(c.assignedAgent === agent.id && ["ACTIVE","ACCEPTED","REASSIGNED"].includes(c.status)){ if(online.length){ online.sort((a,b) => a.activeChats - b.activeChats); const chosen = online[0]; chosen.activeChats++; logAudit(c.convId, agent.name, chosen.name, "agent went offline"); c.assignedAgent = chosen.id; } else { c.status = "WAITING"; c.assignedAgent = null; logAudit(c.convId, agent.name, "Queue", "no agents available"); } } }); agent.activeChats = 0; renderSidebar(); renderStatusCounts(); renderWorkload(); if(currentId) loadCustomer(currentId); }
+function checkEscalation(){ const TEN_MIN = 10*60*1000; Object.values(customers).forEach(c => { if(["WAITING","ACTIVE","ACCEPTED"].includes(c.status) && Date.now() - c.lastActivity > TEN_MIN){ c.delayed = true; } }); renderSidebar(); if(currentId && customers[currentId]) loadCustomer(currentId); }
 setInterval(checkEscalation, 30000);
-
 renderStatusCounts(); renderWorkload(); renderSidebar(); loadCustomer(currentId); renderClosedList(); renderAudit();
 </script>
 </body>
