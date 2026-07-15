@@ -26,8 +26,12 @@ body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#0a0e1c;col
 .st-away{background:#3d2f0f;color:#fbbf24;}
 .st-offline{background:#1a2038;color:#8891b0;}
 
-.layout{display:flex;flex-direction:column;padding:10px;gap:10px;}
-.sidebar,.workload,.info-panel{background:#11162b;border-radius:10px;padding:12px;}
+.layout{display:flex;flex-direction:row;flex-wrap:wrap;align-items:flex-start;padding:10px;gap:10px;}
+.sidebar,.workload,.info-panel{background:#11162b;border-radius:10px;padding:12px;max-height:70vh;overflow-y:auto;}
+.sidebar{flex:1 1 260px;}
+.workload{flex:1 1 220px;}
+.info-panel{flex:1 1 260px;}
+.chat-panel{flex:3 1 340px;min-width:0;}
 .status-list{display:flex;flex-wrap:wrap;gap:6px;}
 .status-list div{padding:6px 10px;font-size:11px;border-radius:6px;color:#8891b0;background:#1a2038;}
 .customer-list{margin-top:10px;border-top:1px solid #1f2540;padding-top:8px;}
@@ -101,11 +105,6 @@ body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;background:#0a0e1c;col
 
 @media (min-width:900px){
   .agent-name{display:inline;}
-  .layout{flex-direction:row;align-items:flex-start;}
-  .sidebar{width:220px;flex-shrink:0;}
-  .workload{width:190px;flex-shrink:0;}
-  .info-panel{width:220px;flex-shrink:0;}
-  .chat-panel{flex:1;min-width:0;}
   .messages{max-height:420px;}
 }
 </style>
